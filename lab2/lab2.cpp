@@ -97,8 +97,6 @@ int main(int argc, char **argv) {
             if (n_threads < 1) n_threads = 1;
         }
     }
-    
-    printf("=== Вариант: Поиск мин/макс в массиве ===\n");
     printf("Размер массива: %d элементов\n", ARRAY_SIZE);
     printf("Количество потоков: %d\n\n", n_threads);
     
@@ -126,15 +124,6 @@ int main(int argc, char **argv) {
     printf("Минимум: %d\n", par_min);
     printf("Максимум: %d\n", par_max);
     printf("Время: %.2f мс\n\n", par_time);
-    
-    double speedup = seq_time / par_time;
-    double efficiency = speedup / n_threads;
-    
-    printf("=== МЕТРИКИ ===\n");
-    printf("Ускорение (Speedup):      S = T1/Tp = %.2f / %.2f = %.2f\n", 
-           seq_time, par_time, speedup);
-    printf("Эффективность (Efficiency): E = S/p = %.2f / %d = %.4f (%.1f%%)\n", 
-           speedup, n_threads, efficiency, efficiency * 100);
     
     free(array);
     
